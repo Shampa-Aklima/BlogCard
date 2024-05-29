@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  
 }
 .font-lob {
   font-family: "Lobster", sans-serif;
@@ -64,17 +64,22 @@
 }
 .one {
   background-color: #01204e;
-  display:none;
+  display: none;
 }
 .two {
   background-color: #f6dcac;
+  display: none;
 }
 .three {
   background-color: #028391;
+  display: none;
 }
-.four {
-  background-color: #feae6f;
-}
+/* .four {
+  /* background-color: #feae6f; */
+/* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+} */
 .overlay {
   height: 100%;
   width: 100%;
@@ -83,15 +88,15 @@
   left: 0;
   background-image: linear-gradient(
     to bottom right,
-    rgba(140, 0, 255, 0.212),
-    rgba(5, 113, 201, 0.726)
+    rgba(140, 0, 255, 0.473),
+    rgba(5, 113, 201, 0.89)
   );
   transition: all 0.4s ease;
 }
 .container:hover .overlay {
   top: 0;
 }
-.info{
+.info {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,18 +105,16 @@
   top: 50%;
   transform: translateY(-50%);
   transition: all 0.5s ease;
+  z-index: 11;
 }
-.container:hover .info{
-  top:10%;
-  
-
+.container:hover .info {
+  top: 10%;
 }
 .category {
-  font-size:1.2rem;
-  color:white;
-
+  font-size: 1.2rem;
+  color: white;
 }
-.title{
+.title {
   font-size: 2rem;
   text-align: center;
   padding: 1rem;
@@ -119,57 +122,41 @@
   z-index: 2;
   display: inline-block;
   color: white;
-} 
-
-.title::after{
-  position: absolute;
-  content: "";
-  height:4px;
-  width:30%;
-  background-color: gold;
-  bottom:-10px;
-  left:50%;
-  transform: translateX(-50%);
-  
-}
-/* .title{
-  font-size: 32px;
-  text-align: center;
-  padding-bottom: .4em;
-  position: relative;
-  z-index: 2;
-  display: inline-block;
 }
 
-.title::after{
+.title::after {
   position: absolute;
   content: "";
   height: 4px;
   width: 30%;
   background-color: gold;
-  bottom: 0;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  
-} */
-.overlay-text{
- display: flex;
- align-items: center;
- justify-content: center;
- flex-direction: column;
- position: relative;
- top:50%;
- transform: translateY(-50%);
- padding: 20px;
- 
 }
-.overlay-text p{
-  font-size:1.1rem;
+.overlay-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: 60%;
+  transform: translateY(-50%);
+  padding: 20px;
+  gap: 16px;
+}
+.overlay-text p {
+  font-size: 1.1rem;
   line-height: 1.4rem;
-  color:white;
+  color: white;
+  text-align: center;
 
+  /* white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;  */
 }
-.overlay-btn{
+.overlay-btn {
   padding: 8px 16px;
   outline: none;
   border: none;
@@ -178,7 +165,7 @@
   color: rgb(112, 111, 107);
   transition: all 0.4s ease;
 }
-.overlay-btn:hover{
+.overlay-btn:hover {
   cursor: pointer;
   background-image: linear-gradient(
     to bottom right,
@@ -186,4 +173,149 @@
     rgba(5, 113, 201, 0.726)
   );
   color: white;
+}
+.clamped-text {
+  display: -webkit-box; /* Use display: -webkit-box to enable the clamping behavior */
+  -webkit-box-orient: vertical; /* Specify the box orientation */
+  -webkit-line-clamp: 3; /* Specify the number of lines to display */
+  overflow: hidden; /* Hide the overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis at the end of the visible text */
+  white-space: normal; /* Allow the text to wrap */
+}
+.wrapper.three h2 {
+  font-size: 3.8rem;
+  background-image: linear-gradient(to right, rgb(255, 116, 2), rgb(4, 255, 4));
+  background-clip: text;
+  color: #01204e00;
+  text-shadow: 17px 17px 20px #1a101052;
+}
+
+.four {
+  background-color: #feae6f;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 50px;
+  height: 150vh;
+}
+
+.main-container {
+  width: 100%;
+  position: relative;
+}
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #028391;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.img-overlay:hover {
+  opacity: 1;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: white;
+}
+
+.img-overlay-two {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  height: 0;
+  width: 100%;
+  left: 0;
+  background-color: #028391;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.main-container:hover .img-overlay-two {
+  bottom: 0;
+  height: 100%;
+}
+
+.img-overlay-three {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #028391;
+  transition: all 0.5s ease;
+}
+
+.main-container:hover .img-overlay-three {
+  height: 100%;
+}
+.img-overlay-six{
+  position: absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  width:0;
+  height: 100%;
+  background-color: #028391;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.main-container:hover .img-overlay-six{
+  width: 100%;
+  
+}
+.img-overlay-five{
+  position: absolute;
+  bottom:0;
+  right:0;
+  left:100%;
+  height:100%;
+  width:0;
+  overflow: hidden;
+  background-color: #028391;
+  transition: all 0.5s ease;
+}
+.main-container:hover .img-overlay-five{
+width:100%;
+left: 0;
+}
+.img-overlay-four{
+  position: absolute;
+  top: 0;
+  left:0;
+  height:100%;
+  width: 100%;
+  background-color: #ffffff76;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  opacity:0;
+}
+.main-container:hover .img-overlay-four{
+  opacity:1;
+}
+.btn{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background-color: #4CAF50;
+  padding: 16px 32px;
+  color: white;
+  font-size: 14px;
 }
